@@ -1,11 +1,12 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-md navbar-light bg-light" >
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-primary font-weight-bold">
     <a class="navbar-brand" href="#">
-            <img style="height:67px; margin-left: 90px"src="{% static "img/logoika.png" %}" alt="">
+        <img style="height:60px;" src="{% static "img/logoika.png" %}" alt="Logo IKA">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -26,9 +27,22 @@
                 <a class="nav-link" href="/forum" title="">Forum</a>
             </li>
         </ul>
-        <ul class="navbar-nav ml-auto" style="margin-right:90px">
+        <ul class="navbar-nav ml-auto" style="margin-right:7%">
             <li class="nav-item">
-                <a class="nav-link" href="/masuk" title="">Masuk</a>
+                {% if user.is_authenticated %}
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        {{ user.username }}
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#!">Profil Anggota</a>
+                        <a class="dropdown-item" href="/logout">Keluar</a>
+                    </div>
+                </div>
+                {% else %}
+                <a class="nav-link" href="/login" title="">Masuk</a>
+                {% endif %}
             </li>
         </ul>
     </div>

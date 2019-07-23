@@ -89,6 +89,12 @@ DATABASES = {
 }
 
 
+# Auth Redirect
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+
 # Custom Auth
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
@@ -137,3 +143,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+# Login/Logout Redirect
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'

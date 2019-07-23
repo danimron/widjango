@@ -1,7 +1,2 @@
-from django.shortcuts import render
+from django import views
 
-def index(request):
-    context = {
-        'title' : 'Forum',
-    }
-    return render(request, 'forum/index.html', context)

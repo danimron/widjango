@@ -13,19 +13,26 @@ class HimatifAuth:
         response = requests.post(self.login_url, params)
         if response.status_code == 200:
             return response.json()
-        elif response.status_code == 401:
-            return None
+        return None
 
     def get_user_profile(self, username):
         response = requests.get(self.profile_url + username)
-        profile = response.json()['response'][0]
-        return profile
+        if response.status_code == 200:
+            profile = response.json()['response'][0]
+            return profile
+        return None
 
     def authenticate(self, request, username=None, password=None):
         user_data = self.api_login(username, password)
         if user_data:
             try:
                 user = User.objects.get(username=username)
+                api_profile = self.get_user_profile(username)
+                UserProfile.objects.filter(user=user).update(
+                    status=api_profile['status'],
+                    foto=api_profile['url_foto']
+                )
+
             except User.DoesNotExist:
                 user = User(username=username)
                 user.save()

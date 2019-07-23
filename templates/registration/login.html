@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container bg-secondary rounded my-5 justify-content-center">
+  <div class="row">
+    <div class="col-lg-5 col-md-8 col-sm-8 col-10 my-3 mx-3">
+      <h2 class="text-primary">Masuk</h2>
+      <form method="post">
+        {% csrf_token %}
+
+        {% if form.errors %}
+        <p class="text-danger">
+          Your username and password didn't match. Please try again.
+        </p>
+        {% endif %}
+
+        <input class="form-control my-2" name="username" type="text" placeholder="NPM">
+        <input class="form-control my-2" name="password" type="password" placeholder="Kata Sandi">
+        <br />
+        <button class="btn btn-danger" type="submit">Masuk</button>
+      </form>
+    </div>
+  </div>
+
+
+</div>
+
+
+{% endblock body %}

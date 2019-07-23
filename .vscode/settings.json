@@ -2,5 +2,5 @@
     "python.linting.pylintEnabled": false,
     "python.linting.pep8Enabled": true,
     "python.linting.enabled": true,
-    "python.pythonPath": "/home/jsb/.virtualenvs/webika/bin/python"
+    "python.pythonPath": "C:\\Program Files (x86)\\Python37-32\\python.exe"
 }
