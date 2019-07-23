@@ -1,0 +1,11 @@
+autopep8==1.4.4
+certifi==2019.6.16
+chardet==3.0.4
+Django==2.2.3
+idna==2.8
+pep8==1.7.1
+pycodestyle==2.5.0
+pytz==2019.1
+requests==2.22.0
+sqlparse==0.3.0
+urllib3==1.25.3

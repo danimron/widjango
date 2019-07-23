@@ -37,6 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Thirdparty
+
+
+    # Own
+    'autentikasi',
     'forum',
     'anggota',
 ]
@@ -81,6 +87,13 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+
+# Custom Auth
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'autentikasi.backend.HimatifAuth'
+)
 
 
 # Password validation
