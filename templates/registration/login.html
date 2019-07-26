@@ -1,30 +1,35 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block body %}
+{% block title %}Login{% endblock %}
 
-<div class="container bg-secondary rounded my-5 justify-content-center">
-  <div class="row">
-    <div class="col-lg-5 col-md-8 col-sm-8 col-10 my-3 mx-3">
-      <h2 class="text-primary">Masuk</h2>
-      <form method="post">
-        {% csrf_token %}
+{% block content %}
 
-        {% if form.errors %}
-        <p class="text-danger">
-          Your username and password didn't match. Please try again.
-        </p>
-        {% endif %}
+<div class="container w-xl-25 w-50 bg-grey rounded">
+  <div class="align-item-center p-3 pr-5">
+    <h2 class="text-primary">Masuk</h2>
+    <form method="post">
+      {% csrf_token %}
 
-        <input class="form-control my-2" name="username" type="text" placeholder="NPM">
-        <input class="form-control my-2" name="password" type="password" placeholder="Kata Sandi">
-        <br />
-        <button class="btn btn-danger" type="submit">Masuk</button>
-      </form>
-    </div>
+      {% if form.errors %}
+      <p class="text-danger">
+        Your username and password didn't match. Please try again.
+      </p>
+      {% endif %}
+
+      <div class="md-form">
+        <input class="form-control my-2 text-primary" name="username" type="text" id="npm">
+        <label class="text-white" for="npm">NPM</label>
+      </div>
+      <div class="md-form">
+        <input class="form-control my-2 text-primary" name="password" type="password" id="kata_sandi">
+        <label class="text-white" for="kata_sandi">Kata Sandi</label>
+      </div>
+
+      <br />
+      <button class="btn btn-red" type="submit">Masuk</button>
+    </form>
   </div>
-
-
 </div>
 
-
-{% endblock body %}
+{% endblock content %}

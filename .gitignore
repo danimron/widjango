@@ -187,4 +187,17 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+
+# node module
+node_modules/*
+
+
+# MDB Gulp
+mdbootstrap/*
+!mdbootstrap/gulpfile.js
+!mdbootstrap/package.json
+!mdbootstrap/scss/
+mdbootstrap/scss/*
+!mdbootstrap/scss/_custom*
+
 # End of https://www.gitignore.io/api/linux,django,windows,visualstudiocode

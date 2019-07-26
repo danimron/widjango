@@ -1,0 +1,20 @@
+// Your custom variables
+
+// Himatif Color
+$himatif-yellow:    #F3AD00;
+$himatif-dark:      #535353;
+$himatif-darker:      #232323;
+
+
+// MBD Color Override
+$primary-color: $himatif-yellow;
+
+$mdb-colors: (
+    grey: $himatif-dark,
+    dark: $himatif-darker
+);
+
+$basic-mdb-colors: (
+    grey: $himatif-dark,
+    dark: $himatif-darker
+);

@@ -8,18 +8,18 @@ class HimatifAuth:
     login_url = f'{base_url}/data/v1/user/login'
     profile_url = f'{base_url}/data/v1/anggota/search?type=npm&q='
 
-    def api_login(self, username, password):
-        params = {'username': username, 'password': password}
-        response = requests.post(self.login_url, params)
-        if response.status_code == 200:
-            return response.json()
-        return None
-
     def get_user_profile(self, username):
         response = requests.get(self.profile_url + username)
         if response.status_code == 200:
             profile = response.json()['response'][0]
             return profile
+        return None
+
+    def api_login(self, username, password):
+        params = {'username': username, 'password': password}
+        response = requests.post(self.login_url, params)
+        if response.status_code == 200:
+            return response.json()
         return None
 
     def authenticate(self, request, username=None, password=None):
@@ -32,7 +32,6 @@ class HimatifAuth:
                     status=api_profile['status'],
                     foto=api_profile['url_foto']
                 )
-
             except User.DoesNotExist:
                 user = User(username=username)
                 user.save()

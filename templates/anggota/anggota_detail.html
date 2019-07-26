@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ object.nama }}{% endblock %}
+
+{% block content %}
+
+<div class="container w-xl-75">
+    <div class="row flex flex-wrap justify-content-center bg-grey rounded">
+        <img class="profile-pic rounded align-self-lg-start mt-3 ml-3" src="{{ object.url_foto }}" alt="{{ object.nama }}">
+        <div class="bg-white flex-fill rounded m-3">
+            <div class="profile-header">
+                <h1 class="text-primary text-break"> {{ object.nama }} </h1>
+                <h2 class="text-primary"> {{ object.npm }} </h2>
+            </div>
+            <div class="p-4">
+                <div>
+                    <p class="text-muted">Jenis Kelamin</p>
+                    <p>{{ object.jk }}</p>
+                </div>
+                <div class="row">
+                    <div class="col-5">
+                        <p class="text-muted">Tempat Lahir</p>
+                        <p>{{ object.tempat_lahir }}</p>
+                    </div>
+                    <div class="col-5">
+                        <p class="text-muted">Tanggal Lahir</p>
+                        <p>{{ object.tanggal_lahir }}</p>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-muted">Alamat</p>
+                    <p>{{ object.alamat_kos }}</p>
+                    <p>{{ object.alamat_rumah }}</p>
+                </div>
+                <div>
+                    <p class="text-muted">Angkatan</p>
+                    <p>{{ object.angkatan }}</p>
+                </div>
+                <div>
+                    <p class="text-muted">Bidang Minat</p>
+                    <p>{{ object.bidang_minat }}</p>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <p class="text-muted">No. HP</p>
+                        <p>{{ object.no_hp }}</p>
+                    </div>
+                    <div class="col-3">
+                        <p class="text-muted">ID Line</p>
+                        <p>{{ object.line }}</p>
+                    </div>
+                    <div class="col-3">
+                        <p class="text-muted">E-Mail</p>
+                        <p>{{ object.email }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,47 +1,47 @@
 {% load static %}
 
-<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-primary font-weight-bold">
+<nav class="navbar navbar-light navbar-expand-lg fixed-top bg-primary">
     <a class="navbar-brand" href="#">
         <img style="height:60px;" src="{% static "img/logoika.png" %}" alt="Logo IKA">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    <button class="navbar-toggler mx-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/" title="">Beranda</a>
+            <li class="nav-item  {% if request.resolver_match.url_name == "home" %}active{% endif %}">
+                <a class="nav-link" href="/">Beranda</a>
             </li>
+            <li class="nav-item  {% if request.resolver_match.url_name == "profil" %}active{% endif %}">
+                <a class="nav-link" href="/profil">Profil</a>
             <li class="nav-item">
-                <a class="nav-link" href="/#" title="">Profil</a>
+                <a class="nav-link" href="/#">Produk</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/#" title="">Produk</a>
+            <li class="nav-item  {% if request.resolver_match.url_name == 'anggota' %}active{% endif %}">
+                <a class="nav-link" href="/anggota">Anggota</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/anggota" title="">Anggota</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/forum" title="">Forum</a>
+            <li class="nav-item  {% if request.resolver_match.url_name == "forum" %}active{% endif %}">
+                <a class="nav-link" href="/forum">Forum</a>
             </li>
         </ul>
-        <ul class="navbar-nav ml-auto" style="margin-right:7%">
-            <li class="nav-item">
+        <ul class="navbar-nav ml-auto mr-5">
+            <li class="nav-item {% if request.resolver_match.url_name == "login" %}active{% endif %}">
                 {% if user.is_authenticated %}
                 <div class="btn-group">
-                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        {{ user.username }}
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        {{ user.userprofile.nama }}
                     </button>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="#!">Profil Anggota</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'anggota_detail' npm=user.userprofile.npm %}">Profil Anggota</a>
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/logout">Keluar</a>
                     </div>
                 </div>
                 {% else %}
-                <a class="nav-link" href="/login" title="">Masuk</a>
+                <a class="nav-link" href="/login">Masuk</a>
                 {% endif %}
             </li>
         </ul>
