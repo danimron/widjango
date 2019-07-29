@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container bg-white">
+    <p><a class="btn btn-default" href="{% url 'thread_list' %}">Thread Listing</a></p>
+    <table class="table">
+        <tr>
+            <td>ID</td>
+            <td>Link</td>
+            <td>title</td>
+            <td>created_at</td>
+        </tr>
+        {% for object in object_list %}
+        <tr>
+            <td>{{object.pk}}</td>
+            <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+            <td>{{ object.title }}</td>
+            <td>{{ object.created_at }}</td>
+        </tr>
+        {% endfor %}
+    </table><a class="btn btn-primary" href="{% url 'thread_create' %}">Create new Thread</a>
+</div>
+{% endblock %}

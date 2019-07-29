@@ -17,6 +17,8 @@
     <!-- Custom styles (optional) -->
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
 
+    {% block css %}{% endblock %}
+
     <title>{% block title %}{% endblock %} | IKA TI FMIPA Unpad</title>
 </head>
 
@@ -36,6 +38,8 @@
     <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+
+    {% block js %}{% endblock %}
 </body>
 
 </html>

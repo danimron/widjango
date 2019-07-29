@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% load martortags %}
+{% block content %}
+<div class="container bg-white">
+    <p><a class="btn btn-default" href="{% url 'thread_list' %}">Thread Listing</a></p>
+    <table class="table">
+        <tr>
+            <td>title</td>
+            <td>{{ object.title }}</td>
+        </tr>
+        <tr>
+            <td>content</td>
+            <td>{{ object.content|safe_markdown }}</td>
+        </tr>
+        <tr>
+            <td>created_at</td>
+            <td>{{ object.created_at }}</td>
+        </tr>
+    </table>
+</div>
+
+{% endblock %}

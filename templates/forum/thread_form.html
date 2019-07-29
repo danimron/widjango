@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load martortags %}
+
+{% block title %}Buat Thread{% endblock %}
+
+{% block css %}
+<link href="{% static 'plugins/css/ace.min.css' %}" type="text/css" media="all" rel="stylesheet" />
+<link href="{% static 'plugins/css/semantic.min.css' %}" type="text/css" media="all" rel="stylesheet" />
+<link href="{% static 'plugins/css/resizable.min.css' %}" type="text/css" media="all" rel="stylesheet" />
+<link href="{% static 'martor/css/martor.min.css' %}" type="text/css" media="all" rel="stylesheet" />
+<style>
+    .main-container {
+        margin-top: 7em
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="ui container main-container">
+    <div class="ui segment">
+        <form class="ui form" method="post">
+            {% csrf_token %}
+            <div class="field">
+                {{ form.title }}
+            </div>
+            <div class="field">
+                {{ form.content }}
+            </div>
+            <div class="field">
+                <div class="ui clearing segment">
+                    <button class="ui right btn btn-red right">
+                        <i class="save icon"></i> Save Post
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% block js %}
+<script type="text/javascript" src="{% static 'plugins/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/js/ace.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/js/semantic.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/js/mode-markdown.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/js/ext-language_tools.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/js/theme-github.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/js/highlight.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/js/resizable.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/js/emojis.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'martor/js/martor.min.js' %}"></script>
+<script>
+    $('form [name="title"]').attr({ 'placeholder': 'Post Title' });
+    $('.ui.menu .ui.dropdown.item').dropdown();
+</script>
+{% endblock %}
+</div>
+
+{% endblock %}

@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Thirdparty
-
+    'martor',
 
     # Own
     'autentikasi',
@@ -139,11 +139,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+
 # Login/Logout Redirect
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+
+# Imgur API Keys
+MARTOR_IMGUR_CLIENT_ID = '49ddf56c591fe51'
+MARTOR_IMGUR_API_KEY = 'ce2af53db73faea5a53529baca87d8802bd21893'
