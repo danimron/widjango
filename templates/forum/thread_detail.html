@@ -2,22 +2,50 @@
 {% load static %}
 {% load martortags %}
 {% block content %}
-<div class="container bg-white">
-    <p><a class="btn btn-default" href="{% url 'thread_list' %}">Thread Listing</a></p>
-    <table class="table">
-        <tr>
-            <td>title</td>
-            <td>{{ object.title }}</td>
-        </tr>
-        <tr>
-            <td>content</td>
-            <td>{{ object.content|safe_markdown }}</td>
-        </tr>
-        <tr>
-            <td>created_at</td>
-            <td>{{ object.created_at }}</td>
-        </tr>
-    </table>
+<div class="container bg-white p-3">
+    <p><a class="btn btn-default ml-4 mt-3" href="{% url 'thread_list' %}">Kembali</a></p>
+    <div class="row flex flex-wrap justify-content-start">
+        <div class="col-sm-12 profile-header m-0">
+            <h1 class="font-weight-bold">{{ object.title }}</h1>
+            <p class="font-weight-normal">nama - npm</p> 
+            <p>{{ object.created_at }}</p>
+        </div>
+        <div class="col-sm-12 px-5 text-justify">
+            {{ object.content|safe_markdown }}
+        </div>
+
+        <div class="col-sm-12 pl-5 my-3">
+            Komentar
+        </div>
+        <!-- komentar -->
+        <div class="px-5">
+            <div class="col-sm-12 px-5 py-3">
+                <span class="font-weight-bold mr-3">Nama</span>
+                <span class="font-weight-normal mr-3">140810000000</span>
+            </div>
+            <div class="col-sm-12 px-5 text-justify">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt utLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+            </div>
+            <div class="col-sm-12 px-5 py-3">
+                <span class="font-weight-normal">{{ object.created_at }}</span>
+            </div>
+        </div>
+        <div class="px-5">
+            <form method="GET" action="" class="px-5">
+                <div class="input-group pt-2">
+                    <input type="text" class="form-control" name="" 
+                        placeholder="Masukkan Komentar..." aria-label="" aria-describedby=""
+                        id="" value="">
+                    <div class="input-group-append">
+                        <button class="btn btn-md btn-red m-0 px-3" type="submit" id="">
+                            KIRIM
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+    </div>
 </div>
 
 {% endblock %}

@@ -21,6 +21,11 @@ body {
   margin: 30px;
 }
 
+.line {
+  width: auto;
+  height: 1px;
+}
+
 @media (min-width: 576px) {
   .w-sm-25 {
     width: 25% !important;
