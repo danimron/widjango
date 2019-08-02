@@ -25,7 +25,7 @@ SECRET_KEY = 'h8%uv7dqi#quoa8+bpxz7g%7qa3!_d!h!+qpe*x8!v7p=bdkkm'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.1.3', '127.0.0.1']
 
 
 # Application definition
@@ -37,9 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     # Thirdparty
     'martor',
+    'threadedcomments',
+    'django_comments',
 
     # Own
     'autentikasi',
@@ -58,6 +61,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'webika.urls'
+SITE_ID = 1
 
 TEMPLATES = [
     {
@@ -76,7 +80,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'webika.wsgi.application'
-
+COMMENTS_APP = 'threadedcomments'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
@@ -89,8 +93,10 @@ DATABASES = {
 }
 
 
-# Auth Redirect
+# Auth Settings
 
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 

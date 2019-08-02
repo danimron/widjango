@@ -26,6 +26,10 @@ body {
   height: 1px;
 }
 
+#id_honeypot {
+  display: none;
+}
+
 @media (min-width: 576px) {
   .w-sm-25 {
     width: 25% !important;

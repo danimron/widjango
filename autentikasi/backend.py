@@ -33,9 +33,9 @@ class HimatifAuth:
                     foto=api_profile['url_foto']
                 )
             except User.DoesNotExist:
-                user = User(username=username)
-                user.save()
                 api_profile = self.get_user_profile(username)
+                user = User(username=username, email=api_profile['email'])
+                user.save()
                 profile = UserProfile.objects.create(
                     user=user,
                     nama=api_profile['nama'],

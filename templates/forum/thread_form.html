@@ -11,10 +11,19 @@
 <link href="{% static 'martor/css/martor.min.css' %}" type="text/css" media="all" rel="stylesheet" />
 <style>
     .main-container {
-        margin-top: 7em
+        margin-top: 7em;
+    }
+
+    .section-martor {
+        overflow-x: auto !important;
+    }
+
+    .top {
+        display: flex;
+        flex-wrap: wrap;
     }
 </style>
-{% endblock %}
+{% endblock css %}
 
 {% block content %}
 <div class="ui container main-container">
@@ -29,14 +38,18 @@
             </div>
             <div class="field">
                 <div class="ui clearing segment">
-                    <button class="ui right btn btn-red right">
-                        <i class="save icon"></i> Save Post
+                    <button class="ui right btn btn-success right">
+                        <i class="save icon"></i> Post
                     </button>
+                    <a class="btn btn-red" href="{% url 'thread_list' %}">
+                        <i class="fas fa-arrow-left"></i> Batal
+                    </a>
                 </div>
             </div>
         </form>
     </div>
 </div>
+
 
 {% block js %}
 <script type="text/javascript" src="{% static 'plugins/js/jquery.min.js' %}"></script>
@@ -53,7 +66,6 @@
     $('form [name="title"]').attr({ 'placeholder': 'Post Title' });
     $('.ui.menu .ui.dropdown.item').dropdown();
 </script>
-{% endblock %}
-</div>
+{% endblock js %}
 
-{% endblock %}
+{% endblock content %}

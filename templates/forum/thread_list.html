@@ -1,24 +1,110 @@
 {% extends "base.html" %}
+{% load threadedcomments_tags %}
 {% load static %}
 
 {% block content %}
-<div class="container bg-white p-3">
-    <p><a class="btn btn-default" href="{% url 'thread_list' %}">Daftar Forum</a></p>
+<div class="container rounded bg-white p-3">
+    <form action="{% url 'thread_list' %}" method="GET">
+        <div class="md-form input-group mt-1">
+            <input id="al-search" type="text" name="search" value="{{ request.GET.search }}" placeholder="Cari Forum"
+                class="form-control">
+            <div class="input-group-append">
+                <button type="submit" value="Search" class="btn btn-sm btn-grey">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
     <table class="table">
         <tr>
             <td class="font-weight-bold">Judul Forum</td>
             <td class="font-weight-bold">Pembuat</td>
+            <td class="font-weight-bold text-center">Komentar</td>
             <td class="font-weight-bold">Dibuat Pada</td>
-            
+
         </tr>
         {% for object in object_list %}
-        <tr>           
+        {% get_comment_count for object as comment_count %}
+        <tr>
             <td> <a href="{{object.get_absolute_url}}">{{ object.title }}</a></td>
-            <td>nama - npm</td>
+            <td>{{ object.author.userprofile.nama }} - {{ object.author.userprofile.npm }}</td>
+            <td class="text-center">{{ comment_count }}</td>
             <td>{{ object.created_at }}</td>
         </tr>
         {% endfor %}
     </table>
+
+    {% if is_paginated %}
+    <nav class="d-flex justify-content-center" aria-label="Page navigation">
+        <ul class="pagination pg-teal">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="
+                                ?page={{ page_obj.previous_page_number }}
+                                {% if request.GET.search %}
+                                    &search={{ request.GET.search }}
+                                {% endif %}">
+                    Previous
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="
+                               ?page={{ page_obj.previous_page_number }}
+                               {% if request.GET.search %}
+                                   &search={{ request.GET.search }}
+                               {% endif %}">
+                    {{page_obj.previous_page_number}}
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link">
+                    Previous
+                </a>
+            </li>
+            {% endif %}
+            <li class="page-item active">
+                <span class="page-link" href="
+                            ?page={{ page_obj.number }}
+                            {% if request.GET.search %}
+                                &search={{ request.GET.search }}
+                            {% endif %}">
+                    {{page_obj.number}}
+                    <span class="sr-only">
+                        (current)
+                    </span>
+                </span>
+            </li>
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="
+                                ?page={{ page_obj.next_page_number }}
+                                {% if request.GET.search %}
+                                    &search={{ request.GET.search }}
+                                {% endif %}">
+                    {{page_obj.next_page_number}}
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="
+                                ?page={{ page_obj.next_page_number }}
+                                {% if request.GET.search %}
+                                    &search={{ request.GET.search }}
+                                {% endif %}">
+                    Next
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">
+                    Next
+                </span>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+
     <p><a class="btn btn-primary" href="{% url 'thread_create' %}">Buat Forum Baru</a></p>
 </div>
 {% endblock %}
