@@ -41,6 +41,15 @@ nav a img{
   margin-left: 88px;
 }
 
+/* login */
+.container-login{
+  width: 300px;
+}
+
+.label-masuk{
+  text-align: center;
+}
+
 /* Halaman Anggota*/
 .md-form {
   margin-top: 0;
@@ -74,6 +83,14 @@ nav a img{
   display: none;
 }
 
+/* Anggota Detail */
+.btn-editprofil{
+  width: 220px;
+  margin-left: 15px;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
 /* forum list */
 .forum-nama{
   font-size: 12px;
@@ -99,6 +116,7 @@ nav a img{
   background-color: #ff4200;
   color: white;
   font-family: 'Poppins', sans-serif;
+  text-transform: none;
 }
 
 .btn-merah:hover{
@@ -137,7 +155,6 @@ nav a img{
 
 .btn-kirim{
   font-weight: 400;
-  text-transform: none;
 }
 
 .btn-batal{
@@ -147,6 +164,10 @@ nav a img{
 
 .btn-batal:hover{
   color: #ff4200;
+}
+
+.kolom-komen{
+  width: 500px;
 }
 
 /* footer */

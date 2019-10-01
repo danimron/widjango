@@ -5,9 +5,10 @@
 
 {% block content %}
 
-<div class="container w-xl-25 w-50 bg-grey rounded">
-  <div class="align-item-center p-3 pr-5">
-    <h2 class="text-primary">Masuk</h2>
+<div class="container container-login pt-4">
+  <div class="card row p-5">
+    <h1 class="text-primary label-masuk">Masuk</h1>
+ 
     <form method="post">
       {% csrf_token %}
 
@@ -17,17 +18,17 @@
       </p>
       {% endif %}
 
-      <div class="md-form">
-        <input class="form-control my-2 text-primary" name="username" type="text" id="npm">
-        <label class="text-white" for="npm">NPM</label>
+      <div class="pt-2">
+        <label class="" for="npm">NPM</label>
+        <input class="form-control text-primary" name="username" type="text" id="npm">
       </div>
-      <div class="md-form">
-        <input class="form-control my-2 text-primary" name="password" type="password" id="kata_sandi">
-        <label class="text-white" for="kata_sandi">Kata Sandi</label>
+      <div class="">
+        <label class="" for="kata_sandi">Kata Sandi</label>
+        <input class="form-control text-primary" name="password" type="password" id="kata_sandi">
       </div>
 
       <br />
-      <button class="btn btn-red" type="submit">Masuk</button>
+      <button class="btn btn-merah" type="submit">Masuk</button>
     </form>
   </div>
 </div>

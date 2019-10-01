@@ -8,13 +8,13 @@
 
     <div class="forum-komenlabel">
         <label for="id_comment">Komentar</label>
-        <input type="text" name="comment" id="id_comment" class="form-control" required>
+        <input type="text" name="comment" id="id_comment" class="form-control kolom-komen" required>
     </div>
 
     {% if not user.email %}
     <div class="forum-komenlabel">
         <label for="id_email">Email</label>
-        <input type="email" name="email" id="id_email" class="form-control" required>
+        <input type="email" name="email" id="id_email" class="form-control kolom-komen" required>
     </div>
     {% endif %}
 
