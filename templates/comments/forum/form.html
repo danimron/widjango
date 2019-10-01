@@ -3,18 +3,18 @@
 
 {% if user.is_authenticated %}
 {% get_comment_form for object as form %}
-<form class="border rounded p-2 m-2" action="{% comment_form_target %}" method="POST">
+<form class="" action="{% comment_form_target %}" method="POST">
     {% csrf_token %}
 
-    <div class="md-form">
-        <input type="text" name="comment" id="id_comment" class="form-control" required>
+    <div class="forum-komenlabel">
         <label for="id_comment">Komentar</label>
+        <input type="text" name="comment" id="id_comment" class="form-control" required>
     </div>
 
     {% if not user.email %}
-    <div class="md-form">
-        <input type="email" name="email" id="id_email" class="form-control" required>
+    <div class="forum-komenlabel">
         <label for="id_email">Email</label>
+        <input type="email" name="email" id="id_email" class="form-control" required>
     </div>
     {% endif %}
 
@@ -24,9 +24,12 @@
     {{ form.timestamp }}
     {{ form.security_hash }}
 
-    <input type="hidden" name="next" value="{% url 'thread_detail' object.id %}" />
-    <button type="submit" name="submit" id="id_submit" class="btn btn-success">Kirim</button>
-    <a href="#c0" id="cancel_reply"><button class="btn btn-danger">Batal</button></a>
+    <div class="pt-3">
+        <input type="hidden" name="next" value="{% url 'thread_detail' object.id %}" />
+        <button type="submit" name="submit" id="id_submit" class="btn btn-merah btn-kirim">Kirim</button>
+        <a href="#c0" id="cancel_reply"><button class="btn btn-more btn-batal"><i class="fas fa-times"></i></button></a>
+    </div>
+   
 </form>
 {% else %}
 <p>Please <a href="{% url 'login' %}">log in</a> to leave a comment.</p>

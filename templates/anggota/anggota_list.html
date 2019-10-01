@@ -6,30 +6,38 @@
 
 {% block content %}
 
-<div class="container-fluid w-xl-75 bg-grey rounded align-item-center">
-    <form method="GET" action="{% url 'anggota' %}">
+<div class="container ">
+    <div class="judul mt-5">
+        <h1>Anggota</h1>
+    </div>
+    
+    <form method="GET" action="{% url 'anggota' %}" class="mb-2">
         <div class="md-form input-group pt-2">
-            <input type="text" class="form-control text-white" name="search"
+            <input type="text" class="form-control" name="search"
                 placeholder="Cari dengan Nama, NPM, atau Angkatan" aria-label="Cari" aria-describedby="search-btn"
                 id="search" value="{{ request.GET.search }}">
             <div class="input-group-append">
-                <button class="btn btn-md btn-red m-0 px-3" type="submit" id="search-btn">
+                <button class="btn btn-md btn-merah m-0 px-3" type="submit" id="search-btn">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
         </div>
     </form>
-
-    <div class="container-fluid content-row">
+    <div class="container py-2">
+        <div class="row justify-content-center">
+            <a class="btn btn-primary" href="#" role="button">2012</a>
+            <a class="btn btn-primary" href="#" role="button">2013</a>
+            <a class="btn btn-primary" href="#" role="button">2014</a>
+            <a class="btn btn-primary" href="#" role="button">2015</a>
+        </div>
+    </div>
+    <div class="container content-row">
         <div class="row justify-content-center">
             {% for anggota in objects %}
             <div class="col-xl-2 col-lg-3 col-sm-4 col-6 p-2">
-                <div class="card h-100">
-                    <div class="view overlay">
+                <div class="card h-100 view overlay">
+                    <div class="card-image">
                         <img class="card-img-top" src="{{ anggota.url_foto }}" alt="{{ anggota.nama }}">
-                        <a href="{% url 'anggota_detail' npm=anggota.npm %}">
-                            <div class="mask rgba-white-slight"></div>
-                        </a>
                     </div>
                     <div class="card-body d-flex flex-column p-1">
                         <span class="text-truncate mt-auto">
@@ -37,6 +45,9 @@
                         </span>
                         <p class="text-muted text-truncate">{{ anggota.npm }}</p>
                     </div>
+                    <a href="{% url 'anggota_detail' npm=anggota.npm %}">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
                 </div>
             </div>
             {% endfor %}

@@ -1,25 +1,24 @@
 {% load static %}
-
 <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-primary">
-    <a class="navbar-brand" href="#">
-        <img style="height:60px;" src="{% static "img/logoika.png" %}" alt="Logo IKA">
-    </a>
     <button class="navbar-toggler mx-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
+    <a class="navbar-brand" href="http://ikati.fmipa.unpad.ac.id/">
+        <img src="{% static "img/logoika.png" %}" alt="Logo IKA">
+    </a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav" id="nav">
             <li class="nav-item  {% if request.resolver_match.url_name == "home" %}active{% endif %}">
                 <a class="nav-link" href="/">Beranda</a>
             </li>
-            <li class="nav-item  {% if request.resolver_match.url_name == "profil" %}active{% endif %}">
-                <a class="nav-link" href="/profil">Profil</a>
             <li class="nav-item">
-                <a class="nav-link" href="/#">Produk</a>
+                <a class="nav-link" href="http://ikati.fmipa.unpad.ac.id/2019/01/03/struktur-organisasi/">Profil</a>
+            <li class="nav-item">
+                <a class="nav-link" href="http://ikati.fmipa.unpad.ac.id/product/">Produk</a>
             </li>
-            <li class="nav-item  {% if request.resolver_match.url_name == 'anggota' %}active{% endif %}">
+            <li class="nav-item  {% if request.resolver_match.url_name == "anggota" %}active{% endif %}">
                 <a class="nav-link" href="/anggota">Anggota</a>
             </li>
             <li class="nav-item  {% if request.resolver_match.url_name == "forum" %}active{% endif %}">
@@ -35,7 +34,7 @@
                         {{ user.userprofile.nama }}
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{% url 'anggota_detail' npm=user.userprofile.npm %}">Profil Anggota</a>
+                        <a class="dropdown-item" href="{% url 'anggota_detail' npm=user.userprofile.npm %}">Profil</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/logout">Keluar</a>
                     </div>

@@ -1,7 +1,7 @@
 {% load threadedcomments_tags %}
 
-<div class="comments_length">
-    <p>{{ comment_list|length }} Comments</p>
+<div class="comments_length text-muted">
+    <p>{{ comment_list|length }} Komentar</p>
 </div>
 
 <div class="comments">
@@ -11,11 +11,11 @@
         {% else %}
             </li>
         {% endif %}
-        <li class="comment_li list-group-item rounded p-2 m-2" id="c{{ comment.id }}">{# c## is used by the absolute URL of the Comment model, so keep that as it is. #}
+        <li class="comment_li list-group-item" id="c{{ comment.id }}">{# c## is used by the absolute URL of the Comment model, so keep that as it is. #}
             <div class="comment">
                 <div class="comment_info">
-                    <div class="comment_user font-weight-normal">{{ comment.user.userprofile.nama }} - {{ comment.user.userprofile.npm }}</div>
-                    <div class="comment_data text-muted">
+                    <div class="comment_user font-weight-bold">{{ comment.user.userprofile.nama }} {{ comment.user.userprofile.npm }}</div>
+                    <div class="comment_data text-muted forum-tanggal py-2">
                         {{ comment.submit_date|date:"d M Y, H:i" }}
                         | <a href="#c{{ comment.id }}" data-comment-id="{{ comment.id }}" class="comment_reply_link">Reply</a>
                     </div>

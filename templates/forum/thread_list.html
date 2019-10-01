@@ -2,37 +2,47 @@
 {% load threadedcomments_tags %}
 {% load static %}
 
+{% block title %}Forum{% endblock title %}
+
 {% block content %}
-<div class="container rounded bg-white p-3">
-    <form action="{% url 'thread_list' %}" method="GET">
-        <div class="md-form input-group mt-1">
+
+<div class="container container-forum justify-content-start">
+    <div class="judul mt-5">
+        <h1>Forum</h1>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-10">
+    
+    <form action="{% url 'thread_list' %}" method="GET" class="">
+        <div class="md-form input-group pt-2">
             <input id="al-search" type="text" name="search" value="{{ request.GET.search }}" placeholder="Cari Forum"
                 class="form-control">
             <div class="input-group-append">
-                <button type="submit" value="Search" class="btn btn-sm btn-grey">
+                <button type="submit" value="Search" class="btn btn-md btn-merah m-0 px-3">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
         </div>
     </form>
-    <table class="table">
-        <tr>
-            <td class="font-weight-bold">Judul Forum</td>
-            <td class="font-weight-bold">Pembuat</td>
-            <td class="font-weight-bold text-center">Komentar</td>
-            <td class="font-weight-bold">Dibuat Pada</td>
 
-        </tr>
-        {% for object in object_list %}
-        {% get_comment_count for object as comment_count %}
-        <tr>
-            <td> <a href="{{object.get_absolute_url}}">{{ object.title }}</a></td>
-            <td>{{ object.author.userprofile.nama }} - {{ object.author.userprofile.npm }}</td>
-            <td class="text-center">{{ comment_count }}</td>
-            <td>{{ object.created_at }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    {% for object in object_list %}
+    {% get_comment_count for object as comment_count %}
+    <div class="card view overlay my-2 p-3">
+        <div class="forum-nama text-muted"> 
+            {{ object.author.userprofile.nama }} 
+        </div>
+        <div class="forum-judul my-2">  
+            {{ object.title }}
+        </div>
+        <div class="forum-nama">
+            {{ comment_count }} Komentar | {{ object.created_at }}
+        </div>
+        <a href="{{object.get_absolute_url}}">
+            <div class="mask rgba-white-slight"></div>
+        </a>
+    </div>
+    {% endfor %}
 
     {% if is_paginated %}
     <nav class="d-flex justify-content-center" aria-label="Page navigation">
@@ -40,10 +50,10 @@
             {% if page_obj.has_previous %}
             <li class="page-item">
                 <a class="page-link" href="
-                                ?page={{ page_obj.previous_page_number }}
-                                {% if request.GET.search %}
-                                    &search={{ request.GET.search }}
-                                {% endif %}">
+                        ?page={{ page_obj.previous_page_number }}
+                        {% if request.GET.search %}
+                            &search={{ request.GET.search }}
+                        {% endif %}">
                     Previous
                 </a>
             </li>
@@ -105,6 +115,14 @@
     </nav>
     {% endif %}
 
-    <p><a class="btn btn-primary" href="{% url 'thread_create' %}">Buat Forum Baru</a></p>
+        </div>
+        <div class="offset-lg-1">
+            
+        </div>
+    </div>
+    
+
+    <p><a class="btn btn-forumbaru btn-merah" href="{% url 'thread_create' %}">Buat Forum Baru!</a></p>
+    
 </div>
 {% endblock %}

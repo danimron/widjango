@@ -5,12 +5,12 @@
 
 {% block content %}
 
-<div class="container w-xl-75">
-    <div class="row flex flex-wrap justify-content-center bg-grey rounded">
+<div class="container">
+    <div class="row flex flex-wrap justify-content-center rounded">
         <img class="profile-pic rounded align-self-lg-start mt-3 ml-3" src="{{ object.url_foto }}"
             alt="{{ object.nama }}">
-        <div class="bg-white flex-fill rounded m-3">
-            <div class="profile-header">
+        <div class="card flex-fill rounded m-3">
+            <div class="profile-header judul">
                 <h1 class="text-primary text-break"> {{ object.nama }} </h1>
                 <h2 class="text-primary"> {{ object.npm }} </h2>
             </div>
