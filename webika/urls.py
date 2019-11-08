@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 from . import views
 
@@ -24,6 +27,7 @@ urlpatterns = [
     path('forum/', include('forum.urls')),
     path('anggota/', include('anggota.urls')),
     path('martor/', include('martor.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', include('autentikasi.urls')),
     path('admin/', admin.site.urls),
-]
+]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

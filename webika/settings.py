@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'martor',
     'threadedcomments',
     'django_comments',
+    'ckeditor',
+    'ckeditor_uploader',
 
     # Own
     'autentikasi',
@@ -145,12 +147,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+
 
 
 # Login/Logout Redirect
@@ -161,3 +166,15 @@ LOGOUT_REDIRECT_URL = '/'
 # Imgur API Keys
 MARTOR_IMGUR_CLIENT_ID = '49ddf56c591fe51'
 MARTOR_IMGUR_API_KEY = 'ce2af53db73faea5a53529baca87d8802bd21893'
+
+CKEDITOR_IMAGE_BACKEND = 'pillow'
+CKEDITOR_THUMBNAIL_SIZE = (300, 300)
+CKEDITOR_IMAGE_QUALITY = 40
+CKEDITOR_BROWSE_SHOW_DIRS = True
+CKEDITOR_ALLOW_NONIMAGE_FILES = True
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'width': '100%',
+    },
+}
