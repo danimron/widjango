@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
 
     # Thirdparty
-    'martor',
     'threadedcomments',
     'django_comments',
     'ckeditor',

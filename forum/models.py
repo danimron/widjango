@@ -1,5 +1,4 @@
 from django.db import models
-from martor.models import MartorField
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.auth.models import User
 from django.urls import reverse

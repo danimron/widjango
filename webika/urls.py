@@ -26,7 +26,6 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('forum/', include('forum.urls')),
     path('anggota/', include('anggota.urls')),
-    path('martor/', include('martor.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', include('autentikasi.urls')),
     path('admin/', admin.site.urls),
