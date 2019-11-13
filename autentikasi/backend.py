@@ -24,7 +24,7 @@ class HimatifAuth:
 
     def authenticate(self, request, username=None, password=None):
         user_data = self.api_login(username, password)
-        if user_data and user_data['status'] == 'Anggota Kehormatan':
+        if user_data:
             try:
                 user = User.objects.get(username=username)
                 api_profile = self.get_user_profile(username)
