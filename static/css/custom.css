@@ -41,6 +41,23 @@ nav a img{
   margin-left: 88px;
 }
 
+.navbar{
+  padding: 0;
+} 
+
+.navbar-brand{
+  padding-left: 17px;
+}
+
+.navbar .show{
+  padding-left: 15px;
+  padding-bottom: 10px;
+}
+
+.navbar-profil li {
+  padding-left: 10px;
+}
+
 /* login */
 .container-login{
   width: 300px;
@@ -160,6 +177,7 @@ nav a img{
 .btn-batal{
   color: black;
   margin: 0 0 0 10px;
+  text-transform: none;
 }
 
 .btn-batal:hover{
@@ -173,7 +191,7 @@ nav a img{
 /* footer */
 .content{
   min-height: 100%;
-  padding-bottom: 95px;
+  padding-bottom: 110px;
 }
 
 .footer {
@@ -188,7 +206,7 @@ footer>p{
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-weight: 600;
-  padding-left: 140px;
+  padding-left: 100px;
   padding-top: 37px;
 } 
 

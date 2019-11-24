@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Buat Thread{% endblock %}
+{% block title %}Buat Forum{% endblock %}
 
 {% block css %}
 <link href="{% static 'plugins/css/ace.min.css' %}" type="text/css" media="all" rel="stylesheet" />
@@ -20,6 +20,9 @@
 
 {% block content %}
 <div class="container main-container">
+    <div class="judul mt-5">
+        <h1>Buat Forum</h1>
+    </div>
     <div class="ui segment">
         <form class="ui form" method="post">
             {% csrf_token %}
@@ -32,16 +35,15 @@
             </div>
             <div class="field">
                 <div class="ui clearing segment">
-                    <button class="ui right btn btn-success right">
-                        <i class="save icon"></i> Post
+                    <button class="ui right btn btn-merah right">
+                       Post
                     </button>
-                    <a class="btn btn-red" href="{% url 'thread_list' %}">
-                        <i class="fas fa-arrow-left"></i> Batal
+                    <a class="btn btn-batal" href="{% url 'thread_list' %}">
+                       Batal
                     </a>
                 </div>
             </div>
         </form>
     </div>
 </div>
-
 {% endblock content %}

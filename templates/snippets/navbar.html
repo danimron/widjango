@@ -8,15 +8,15 @@
         <img src="{% static "img/logoika.png" %}" alt="Logo IKA">
     </a>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav" id="nav">
+    <div class="collapse navbar-collapse bg-primary" id="navbarSupportedContent">
+        <ul class="navbar-nav navbar-list" id="nav">
             <li class="nav-item  {% if request.resolver_match.url_name == "home" %}active{% endif %}">
                 <a class="nav-link" href="/">Beranda</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="http://ikati.fmipa.unpad.ac.id/2019/01/03/struktur-organisasi/">Profil</a>
             <li class="nav-item">
-                <a class="nav-link" href="http://ikati.fmipa.unpad.ac.id/product/">Produk</a>
+                <a class="nav-link" href="http://ikati.fmipa.unpad.ac.id/product/">Product</a>
             </li>
             <li class="nav-item  {% if request.resolver_match.url_name == "anggota" %}active{% endif %}">
                 <a class="nav-link" href="/anggota">Anggota</a>
@@ -25,7 +25,7 @@
                 <a class="nav-link" href="/forum">Forum</a>
             </li>
         </ul>
-        <ul class="navbar-nav ml-auto mr-5" id="nav">
+        <ul class="navbar-nav ml-auto mr-5 navbar-profil" id="nav">
             <li class="nav-item {% if request.resolver_match.url_name == "login" %}active{% endif %}">
                 {% if user.is_authenticated %}
                 <div class="btn-group">

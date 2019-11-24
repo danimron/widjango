@@ -14,17 +14,17 @@
     <div class="row">
         <div class="col-lg-10">
     
-    <form action="{% url 'thread_list' %}" method="GET" class="">
-        <div class="md-form input-group pt-2">
-            <input id="al-search" type="text" name="search" value="{{ request.GET.search }}" placeholder="Cari Forum"
-                class="form-control">
-            <div class="input-group-append">
-                <button type="submit" value="Search" class="btn btn-md btn-merah m-0 px-3">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-        </div>
-    </form>
+            <form action="{% url 'thread_list' %}" method="GET" class="">
+                <div class="md-form input-group pt-2">
+                    <input id="al-search" type="text" name="search" value="{{ request.GET.search }}" placeholder="Cari Forum"
+                        class="form-control">
+                    <div class="input-group-append">
+                        <button type="submit" value="Search" class="btn btn-md btn-merah m-0 px-3">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
 
     {% for object in object_list %}
     {% get_comment_count for object as comment_count %}
@@ -114,10 +114,8 @@
         </ul>
     </nav>
     {% endif %}
-
         </div>
-        <div class="offset-lg-1">
-            
+        <div class="offset-lg-1">           
         </div>
     </div>
     
