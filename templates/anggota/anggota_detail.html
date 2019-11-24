@@ -10,7 +10,7 @@
         <div class="mt-3 ml-3 justify-content-center" >
             <img class="profile-pic rounded align-self-lg-start " src="{{ object.url_foto }}"
                 alt="{{ object.nama }}">
-            {% if user.is_authenticated and object.npm == object.npm %}
+            {% if user.is_authenticated and object.npm == user.userprofile.npm %}
             <div>
                 <a class="btn btn-merah btn-editprofil" href="https://apps.himatif.org/hda" role="button">Edit Profil</a>
             </div>
