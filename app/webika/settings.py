@@ -42,8 +42,7 @@ INSTALLED_APPS = [
     # Thirdparty
     'threadedcomments',
     'django_comments',
-    'ckeditor',
-    'ckeditor_uploader',
+    'django_summernote',
 
     # Own
     'autentikasi',
@@ -156,15 +155,31 @@ STATICFILES_DIRS = (
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
-CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 
 # Login/Logout Redirect
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-CKEDITOR_CONFIGS = {
-    'default': {
+SUMMERNOTE_THEME = 'lite'
+SUMMERNOTE_CONFIG = {
+    'iframe': False,
+
+    # You can put custom Summernote settings
+    'summernote': {
+        # As an example, using Summernote Air-mode
+        'airMode': False,
+
+        # Change editor size
         'width': '100%',
+        'height': '480',
     },
+
+    # Need authentication while uploading attachments.
+    'attachment_require_authentication': True,
+
+    # Set `True` to return attachment paths in absolute URIs.
+    'attachment_absolute_uri': False,
+
+    'lazy': True,
 }

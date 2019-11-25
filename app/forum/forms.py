@@ -1,3 +1,4 @@
+from django_summernote.widgets import SummernoteInplaceWidget, SummernoteWidget
 from django import forms
 from .models import Thread
 
@@ -11,4 +12,7 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Thread
-        fields = ('title', 'content')
+        exclude = ('author', 'created_at')
+        widgets = {
+            'content': SummernoteInplaceWidget(),
+        }
