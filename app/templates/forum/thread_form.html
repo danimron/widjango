@@ -4,20 +4,22 @@
 {% block title %}Buat Forum{% endblock %}
 
 {% block css %}
-
-{{ form.media.css }}
-
+<style>
+    .django-ckeditor-widget {
+        width: 100% !important;
+    }
+</style>
 {% endblock css %}
 
 {% block content %}
-
 <div class="container main-container">
     <div class="judul mt-5">
         <h1>Buat Forum</h1>
     </div>
     <form class="ui form" method="post">
         {% csrf_token %}
-        {{ form.title }}
+        <input class="form-control mb-2" name="title" type="text" placeholder="Judul" value="{{ form.title.value | default_if_none:'' }}" required>
+        {{ form.media }}
         {{ form.content }}
 
         <button class="ui right btn btn-merah right">
@@ -28,15 +30,4 @@
         </a>
     </form>
 </div>
-
 {% endblock content %}
-
-{% block js %}
-
-{{ form.media.js }}
-
-<script type="text/javascript">
-    initSummernote();
-</script>
-
-{% endblock js %}

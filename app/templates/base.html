@@ -9,8 +9,7 @@
 
     <link rel="icon" href="{% static 'img/favicon.ico' %}">
     
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Poppins:400,700&display=swap" rel="stylesheet">
+    {% block css %}{% endblock %}
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -20,12 +19,8 @@
     <!-- Custom styles -->
     <link href="{% static 'css/custom.css' %}" type="text/css" rel="stylesheet" > 
 
-    {% block css %}{% endblock css %}
 
-    <title>{% block title %}{% endblock title%}</title>
-
-    {% block extrahead %}{% endblock extrahead %}
-
+    <title>{% block title %}{% endblock %}</title>
 </head>
 
 <body>
@@ -35,11 +30,6 @@
     {% block content %}
 
     {% endblock content %}
-    </div>
-
-    <footer class="footer">
-        <p>Copyright © IKA TI Unpad</p>
-    </footer>
 
     <!-- JQuery -->
     <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
@@ -49,8 +39,14 @@
     <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Poppins:400,700&display=swap" rel="stylesheet">
 
-    {% block js %}{% endblock js %}
+    {% block js %}{% endblock %}
+    </div>
+    <footer class="footer">
+        <p>Copyright © IKA TI Unpad</p>
+    </footer>
 </body>
 
 </html>

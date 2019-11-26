@@ -18,6 +18,8 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
+from ckeditor_uploader import views as uploader_views
+from django.views.decorators.cache import never_cache
 
 
 from . import views
@@ -26,7 +28,10 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('forum/', include('forum.urls')),
     path('anggota/', include('anggota.urls')),
-    path('summernote/', include('django_summernote.urls')),
+    path('ckeditor/upload/',
+         uploader_views.upload, name='ckeditor_upload'),
+    path('ckeditor/browse/',
+         never_cache(uploader_views.browse), name='ckeditor_browse'),
     path('', include('autentikasi.urls')),
     path('admin/', admin.site.urls),
 ]
