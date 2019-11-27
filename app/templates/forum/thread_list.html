@@ -26,6 +26,8 @@
                 </div>
             </form>
 
+            <p><a class="btn btn-forumbaru btn-merah" href="{% url 'thread_create' %}">Buat Forum</a></p>
+
     {% for object in object_list %}
     {% get_comment_count for object as comment_count %}
     <div class="card view overlay my-2 p-3">
@@ -120,7 +122,7 @@
     </div>
     
 
-    <p><a class="btn btn-forumbaru btn-merah" href="{% url 'thread_create' %}">Buat Forum Baru!</a></p>
+    
     
 </div>
 {% endblock %}
